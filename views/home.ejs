@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8" />
+    <title>Responsive Menu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/style/home.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+<body>
+    <nav>
+        <label class="logo">Sharing Threads</label>
+        <ul>
+            <li><a class="active" href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/addProducts" target="_blank">Add Products</a></li>
+            <li><a href="#">Profile</a></li>
+        </ul>
+    </nav>
+    <section class="new-section">
+        <div class="card-products">
+            <% product.forEach(product => { %>
+            <div class="container">
+                <div class="images">
+                    <img class="post-img" src="<%= product.image_location %>" />
+                </div>
+                <p class="pick">Cloth Size: <%= product.size ? product.size : 'N/A' %></p>
+                <div class="product">
+                    <h1 class="p-name"><%= product.pname %></h1>
+                    <h2 class="price">Price: $<%= product.price %></h2>
+                    <p class="desc"><%= product.details %></p>
+                    <div class="buttons">
+                        <button class="add">Rent Now</button>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+        <footer>
+            <!-- Footer content goes here -->
+        </footer>
+    </section>
+</body>
+
+</html>
