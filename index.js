@@ -13,7 +13,9 @@ const url = "mongodb://127.0.0.1:27017/sharingThreads";
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('view engine', 'ejs');
-app.set('views', path.resolve('./views'));
+app.set('views', path.join(__dirname, 'views'));
+
+// app.set('views', path.resolve('./views'));
 // Set up views directory and view engine
 
 // Body parser middleware
@@ -29,20 +31,28 @@ app.use("/products", productsRouter);
 
 // Homepage route
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/views/index.html'));
+    res.sendFile(path.join(__dirname, 'views/index.html'));
 });
 
 // Home route
-app.get('/home', (req, res) => {
-    return res.render('home'); 
+app.get("/addProducts", (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/products_entry.html'));
+});
+app.get("/about", (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/about.html'));
+});
+app.get("/contact", (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/contactus.html'));
+});
+
+app.get("/profile", (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/profile.html'));
 });
 
 // Add products route
-app.get("/addProducts", (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/views/products_entry.html'));
-});
+
 
 // Start server
-app.listen(port, () => {+
+app.listen(port, () => {  
     console.log(`Server is running on port ${port}`);
 });

@@ -1,0 +1,305 @@
+* {
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: montserrat;
+}
+nav {
+	background: #a2d2ff;
+	height: 70px;
+	width: 100%;
+    position: sticky;
+    top: 0px;
+    z-index: 2;
+}
+label.logo {
+	color: black;
+	font-size: 25px;
+	line-height: 80px;
+	padding: 0 100px;
+	font-weight: bold;
+}
+nav ul {
+	float: right;
+	margin-right: 20px;
+}
+.photo{
+    width: 10%;
+    height: 100px;
+}
+nav ul li {
+	display: inline-block;
+	line-height: 80px;
+	margin: 0 5px;
+    
+}
+nav ul li a {
+	color: black;
+	font-size: 12px;
+	padding: 7px 13px;
+	border-radius: 3px;
+	text-transform: uppercase;
+    transition: .5s;
+}
+ a:hover {
+	background: white;
+	transition: .5s;
+}
+.checkbtn {
+	font-size: 30px;
+	color: white;
+	float: right;
+	line-height: 80px;
+	margin-right: 40px;
+	cursor: pointer;
+	display: none;
+}
+#check {
+	display: none;
+}
+@media (max-width: 952px){
+	label.logo{
+		font-size: 30px;
+		padding-left: 50px;
+	}
+	nav ul li a{
+		font-size: 16px;
+	}
+}
+@media (max-width: 858px){
+	.checkbtn {
+		display: block;
+	}
+	ul{
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		background: #1d075f;
+		top: 80px;
+		left: -100%;
+		text-align: center;
+		transition: all .5s;
+	}
+	nav ul li{
+		display: block;
+		margin: 50px 0;
+		line-height: 30px;
+	}
+	nav ul li a {
+		font-size: 20px;
+	}
+	a:hover, a.active {
+		background: none;
+		color: #5434af;
+	}
+	#check:checked ~ ul {
+		left: 0;
+	}
+}
+
+/* card dection */
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+.new-section{
+    margin-top: 10px;
+}
+body {
+  display: grid;
+  background: #cdb4db;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+}
+
+.container {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  width: 520px;
+  height: 350px;
+  background: #F5F5F5;
+  box-shadow: 5px 5px 15px rgba(186, 126, 126, .5);
+  border-radius: 10px;
+}
+
+p {
+  font-size: 0.6em;
+  color: #BA7E7E;
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 1.2em;
+  color: #4E4E4E;
+  margin-top: -5px;
+}
+
+h2 {
+  color: #C3A1A0;
+  margin-top: -5px;
+}
+
+img {
+  width: 290px;
+  margin-top: 47px;
+}
+
+.slideshow-buttons {
+  top: 70%;
+  display: none;
+}
+
+
+.card-products{
+    position: relative; /* Position relative to contain absolute children */
+  width: 100%;
+  height: 100vh;
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.container{
+    width: 30%;
+    height: 370px  ;
+    margin-top: 15px;
+}
+.products{
+    position: absolute; /* Position cards absolutely within the container */
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap to next line */
+  justify-content: center; /* Center cards horizontally */
+  align-items: center; /* Center cards vertically */
+  width: 33%;
+  height: 70%; 
+
+
+}
+.product {
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  top: 10%;
+  left: 60%;
+}
+
+.p-name{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.post-img{
+    width: 45%;
+    margin-left: 20px;
+    transition: .25s;
+}
+.post-img:hover {
+    transform: scale(1.03);
+    filter: brightness(1.05);
+}
+
+.post-img:hover ~ .container {
+    filter: brightness(0.95);
+}
+
+.desc {
+  text-transform: none;
+  letter-spacing: 0;
+  margin-bottom: 17px;
+  color: #4E4E4E;
+  font-size: .7em;
+  line-height: 1.6em;
+  margin-right: 25px;
+  text-align: justify;
+}
+
+button {
+  background: #D9AAB7;
+  padding: 10px;
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  margin: -1px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #BA7E7E;
+  transition: all .4s ease-in-out;
+}
+
+.add {
+  width: 67%;
+}
+
+.like {
+  width: 22%;
+}
+
+.price{
+    font-size: 14px;
+}
+
+.pick {
+  margin-top: 11px;
+  margin-bottom:0;
+  margin-left: 20px;
+}
+
+.size {
+    display: grid;
+  color: #D9AAB7;
+  grid-template-columns: repeat(auto-fill, 30px);
+  width: 60%;
+  grid-gap: 4px;
+  margin-left: 20px;
+  margin-top: 5px;
+  padding: 9px;
+  border: 1px solid #F5F5F5;
+  font-size: 0.7em;
+  text-align: center;
+}
+
+.size:hover {
+  background: #BA7E7E;
+  color: #F5F5F5;
+  transition: all .4s ease-in-out;
+}
+
+.focus {
+  background: #BA7E7E;
+  color: #F5F5F5;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  padding: 10px;
+}
+
+footer p {
+  letter-spacing: 3px;
+}
+
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #7d7d7d;
+}
+.ti{
+    margin-bottom: 5px;
+}

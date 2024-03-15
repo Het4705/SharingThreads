@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const products = require("../models/products");
+const User = require("../models/users");
 const multer = require('multer');
 const path = require('path');
+
 
 // Multer configuration for file upload
 const storage = multer.diskStorage({
@@ -15,11 +17,13 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({
+    storage: storage
+});
 
 router.post("/add", upload.single('image'), async (req, res) => {
     const body = req.body;
-    if (!body.UserID || !body.productID || !body.pname || !body.price || !body.stock || !body.details ||
+    if (!body.UserID || !body.productID || !body.pname || !body.price ||  !body.details ||
         !body.size||!body.tags) {
         return res.status(400).json({
             msg: "All fields are required."
@@ -33,15 +37,13 @@ router.post("/add", upload.single('image'), async (req, res) => {
                 productID: body.productID,
                 price: body.price,
                 image_location: image_location,
-                stock: body.stock,
+                stock: 1,
                 details: body.details,
                 size: body.size,
                 tags: body.tags.split(',').map(tag => tag.trim()), 
             });
             console.log("result", result);
-            return res.status(201).json({
-                msg: "success"
-            });
+            return res.status(201).redirect("/products/getProducts")
         } catch (error) {
             console.error("Error creating product:", error);
             return res.status(500).json({
@@ -50,5 +52,16 @@ router.post("/add", upload.single('image'), async (req, res) => {
         }
     }
 });
+
+router.get("/getProducts", async (req, res) => {
+    try {
+        const product = await products.find(); // Retrieve all products from the collection
+        res.render('home',{product}) // Send the products as JSON response
+    } catch (error) {
+        console.error("Error fetching products:", error);
+        res.status(500).json({ message: "Internal Server Error" }); // Handle error
+    }
+});
+
 
 module.exports = router;

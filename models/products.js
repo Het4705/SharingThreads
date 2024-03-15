@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const productsSchema = new mongoose.Schema({
     UserID: {
         type: String,
-        required: true,
-        unique: true
+        required:true
+        // unique: true
     },
     productID: {
         type: String,
@@ -33,7 +33,7 @@ const productsSchema = new mongoose.Schema({
     },
     size:{
         required:true,
-        type:String,
+        type:String
     },
     tags:{
         required:true,

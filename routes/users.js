@@ -79,7 +79,7 @@ router.post("/signup", async (req, res) => {
         });
 
         // Redirect to home page upon successful sign-up
-        res.redirect('/home');
+        res.redirect('/products/getProducts');
     } catch (error) {
         console.error("Error creating user:", error);
         return res.status(500).json({ msg: "Internal server error." });
@@ -101,8 +101,7 @@ router.post("/signin", async (req, res) => {
             return res.status(401).json({ msg: "Incorrect password" });
         }
 
-        // Redirect to home page upon successful sign-in
-        res.redirect('/home');
+        res.redirect('/products/getProducts');
     } catch (error) {
         console.error("Error signing in:", error);
         res.status(500).json({ msg: "Internal server error" });
