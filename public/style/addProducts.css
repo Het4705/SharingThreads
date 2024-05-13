@@ -1,74 +1,74 @@
 /* Body and Heading Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #e9e7f0; /* Light lavender background */
-    margin: 0;
-    padding: 0;
-  }
-  
-  h2 {
-    color: #333; /* Darker text for better contrast */
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  /* Form Container */
-  form {
-    max-width: 500px;
-    margin: 0 auto;
-    background-color: #fff; /* White form background */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Form Label Styles */
-  .form-label {
-    font-weight: bold;
-    color: #333; /* Darker text for better contrast */
-  }
-  
-  /* Form Input Styles */
-  .form-input,
-  .form-textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  /* Modern Input Focus Styles */
-  .form-input:focus,
-  .form-textarea:focus {
-    outline: none;
-    border: 1px solid #b3a9e1; /* Light purple border on focus */
-  }
-  
-  /* Form Textarea Styles */
-  .form-textarea {
-    resize: vertical; /* Allow vertical resizing of textarea */
-  }
-  
-  /* Button Styles */
-  .submit-btn {
-    background-color: #d0bdf4; /* Light purple button color */
-    color: white; /* White text for better contrast */
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .submit-btn:hover {
-    background-color: #c2acb9; /* Slightly darker purple on hover */
-  }
-  
-  /* Error Message Styles */
-  .error-message {
-    color: #f00;
-    margin-top: 5px;
-    font-size: 14px;
-  }
+  font-family: Arial, sans-serif;
+  background-color: #f8d3dc; /* Baby pink background */
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  color: #836fa9; /* Light violet heading color */
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Form Container */
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #fff; /* White form background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Label Styles */
+.form-label {
+  font-weight: bold;
+  color: #836fa9; /* Light violet label color */
+}
+
+/* Form Input Styles */
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #dac1e8; /* Light violet border */
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Modern Input Focus Styles */
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border: 1px solid #bca0d6; /* Light violet border on focus */
+}
+
+/* Form Textarea Styles */
+.form-textarea {
+  resize: vertical; /* Allow vertical resizing of textarea */
+}
+
+/* Button Styles */
+.submit-btn {
+  background-color: #782bff; /* Baby pink button color */
+  color: white; /* White text for better contrast */
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #836fa9; /* Slightly darker pink on hover */
+}
+
+/* Error Message Styles */
+.error-message {
+  color: #f00; /* Red error message color */
+  margin-top: 5px;
+  font-size: 14px;
+}

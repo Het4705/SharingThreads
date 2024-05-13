@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Profile Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="../public/css/output.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/style/profile.css">
+</head>
+
+<body>
+    <nav>
+        <label class="logo">Sharing Threads</label>
+        <ul>
+            <li><a class="active" href="products/getProducts">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/profile">Profile</a></li>
+        </ul>
+    </nav>
+    <main class="flex">
+        <div class="w-[50%] mr-3 border-r-4">
+            <div class="pic">
+                <img src="/images/sharing-threads-logo.jpeg" style="margin-bottom:10px;" alt="Profile Pic">
+            </div>
+
+            <div class="user-info">
+                <h1>
+                    <%= user.uid%>
+                </h1>
+                <p>Email: <%= user.email %>
+                </p>
+            </div>
+
+        </div>
+        <section class="flex  justify-around w-full h-[100%]">
+            <div class="w-[48%] h-full bg-slate-50 flex-col justify-start">
+                <div class="flex  border-b-2 border-fuchsia-700 justify-center  items-center p-5 h-[20%] ">
+                    <h3 class="text-xl">Offered Clothes</h1>
+                </div>
+                <div class="shadow-md p-3  h-[78%] mt-[1%] overflow-scroll ">
+                    
+                    
+                    <% Offered_products.forEach( product=>{ %>
+                        <div class="hover:bg-slate-300 shadow-slate-700 cursor-pointer rounded-md shadow-lg mt-1  mb-2 h-[60%] w-[97%] flex ">
+                            <div class="flex-col w-[50%] ">
+                                <img class="shadow-lg h-full border-l rounded-lg " src="<%= product.image_location %>"
+                                    alt="img" srcset="">
+                            </div>
+
+                            <div class="mt-1 ml-1 p-2 flex flex-col h-full justify-between w-[50%] ">
+                                <div>
+                                    <p class="text-lg text-slate-900">
+                                        <%=product.pname%>
+                                    </p>
+                                </div>
+                                <div class=" overflow-hidden hover:overflow-scroll">
+                                    <p>
+                                        <%=product.details%>
+                                    </p>
+                                </div>
+                                <div class="mt-1 mb-1">
+                                    <p class="text-[15px] text-blue-700 ">Price:<b>
+                                            <%=product.price%>
+                                        </b></p>
+                                    <p class="text-[15px] text-green-700">Size:<b>
+                                            <%=product.size%>
+                                        </b></p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <% });%>
+
+
+                    </div>
+
+            </div>
+            <div class="w-[48%] h-full bg-slate-50 flex-col justify-start">
+                <div class="flex border-b-2 border-fuchsia-700  justify-center  items-center p-5 h-[20%] ">
+                    <h3 class="text-xl">Borrowed Clothes</h1>
+                </div>
+              
+
+            </div>
+         
+
+          
+
+
+
+
+
+
+
+        </section>
+
+
+    </main>
+    <footer>
+        <div class="footer">
+            <p>&copy; Sharing Threads</p>
+        </div>
+    </footer>
+    <script src="/tw-elements/dist/js/tw-elements.umd.min.js" type="text/javascript"></script>
+</body>
+
+</html>

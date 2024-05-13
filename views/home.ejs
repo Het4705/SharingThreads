@@ -9,11 +9,24 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
+<script>
+if ("<%= order %>" === "true") {
+    alert("Order Already Placed");
+    window.location.href = "http://localhost:8001/products/getProducts";
+}
+
+if ("<%= rentingOwnClothes %>" === "true") {
+    alert("You can't rent your own clothes");
+    window.location.href = "http://localhost:8001/products/getProducts";
+}
+
+</script>
 <body>
+   
     <nav>
         <label class="logo">Sharing Threads</label>
         <ul>
-            <li><a class="active" href="products/getProducts">Home</a></li>
+            <li><a class="active" href="/products/getProducts">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact Us</a></li>
             <li><a href="/addProducts" target="_blank">Add Products</a></li>
@@ -23,26 +36,34 @@
     <section class="new-section">
         <div class="card-products">
             <% product.forEach(product => { %>
-            <div class="container">
-                <div class="images">
-                    <img class="post-img" src="<%= product.image_location %>" />
-                </div>
-                <p class="pick">Cloth Size: <%= product.size ? product.size : 'N/A' %></p>
-                <div class="product">
-                    <h1 class="p-name"><%= product.pname %></h1>
-                    <h2 class="price">Price: Rs <%= product.price %></h2>
-                    <p class="desc"><%= product.details %></p>
-                    <div class="buttons">
-                        <button class="add">Rent Now</button>
+                <div class="container">
+                    <div class="images">
+                        <img class="post-img" src="<%= product.image_location %>" alt="Product Image">
+                        <p class="pick">Cloth Size: <%= product.size ? product.size : 'N/A' %></p>
+                    </div>
+                    <div class="product">
+                        <h1 class="p-name"><%= product.pname %></h1>
+                        <h2 class="price">Price: Rs <%= product.price %></h2>
+                        <p class="desc"><%= product.details %></p>
+                        <div class="buttons">
+                            <% if(product.stock > 0) { %>
+                                <form action="/users/rent" method="post">
+                                    <input type="hidden" name="productId" value="<%= product.id %>">
+                                    <button type="submit" class="add">Rent Now</button>
+                                </form>
+                            <% } else { %>
+                                <button class="add">OUT OF STOCK</button>
+                            <% } %>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <% }); %>
+            <% }); %>            
         </div>
         <footer>
-            <!-- Footer content goes here -->
+            <div class="footer">
+                <p>&copy; Sharing Threads</p>
+            </div>
         </footer>
     </section>
 </body>
-
 </html>
